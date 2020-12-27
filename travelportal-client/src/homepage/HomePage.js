@@ -41,10 +41,17 @@ const HomePage = () => {
           <Modal.Title>Create new Article</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Article {...{
-            callback: modalCallback
-          }} />
+          <Article
+            {...{
+              callback: modalCallback
+            }}
+          />
         </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
       </Modal>
     </>
   );
