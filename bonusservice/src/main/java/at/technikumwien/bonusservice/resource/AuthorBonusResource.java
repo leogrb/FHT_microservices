@@ -15,7 +15,7 @@ import lombok.extern.java.Log;
 // TODO: Still to be defined what resources are needed outside
 
 @RestController
-@RequestMapping("/resources/authorbonus")
+@RequestMapping("/resources/author-bonus")
 @CrossOrigin
 @Log
 public class AuthorBonusResource {

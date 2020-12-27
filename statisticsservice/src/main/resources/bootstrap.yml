@@ -1,0 +1,22 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: statisticsservice
+    
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
+      naming:
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      show-sql: true
+
+  jackson:
+    default-property-inclusion: non-empty
+  cloud:
+    config:
+      uri: http://localhost:8888 # maybe get config server through server discovery (eureka)
+      name: statisticsservice,datasource
