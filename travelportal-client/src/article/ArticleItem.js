@@ -13,7 +13,7 @@ const ArticleItem = (props) => {
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
-          Published at {publicationDate}
+          <i className="fas fa-calendar-alt" /> {publicationDate}
         </Card.Subtitle>
         <Card.Text>{preparedDescription}</Card.Text>
         <Card.Link as={Link} to={"articles/" + id}>
