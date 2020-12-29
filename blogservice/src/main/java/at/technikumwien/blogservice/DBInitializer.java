@@ -1,12 +1,14 @@
 package at.technikumwien.blogservice;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.event.EventListener;
+import java.time.LocalDate;
 
 import javax.transaction.Transactional;
-import java.time.LocalDate;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.event.EventListener;
 
 @Configuration
 public class DBInitializer {
@@ -15,7 +17,12 @@ public class DBInitializer {
 
     @Transactional
     @EventListener(ApplicationReadyEvent.class)
-    public void handleApplicationReady() {
+    public void handleApplicationReady(ApplicationReadyEvent event) {
+    	// for some reason, there are two application context -> it calls then twice
+    	// this method and second time it throws an exception in SQL (unique mails)
+    	if (!(event.getApplicationContext() instanceof AnnotationConfigApplicationContext)) {
+    		return;
+    	}
         Article article = articleRepository.save(
                 new Article(
                         "Ein Nachmittag im Labyrinth in Schönbrunn",
@@ -33,7 +40,7 @@ public class DBInitializer {
                         "Eine schöne Runde verspricht der St. Michael Rundweg von Spitz nach St. Michael und wieder retour. Rund 7 Kilometer Abwechslung mit Weingärten, Wälder und der Donau warten auf dich.",
                         LocalDate.of(2020, 5, 20),
                         true,
-                        new Author("Stefan", "Miljevic", "dummy2@outlook.com", LocalDate.of(1998, 3, 12)),
+                        new Author("Stefan", "Miljevic", "dummy2@outlook.com", LocalDate.of(1998, 6, 15)),
                         new Sight("Wachau", "Die Wachau ist die Landschaft im und um das Tal der Donau zwischen Melk und Krems an der Donau in Niederösterreich. Im Jahr 2000 wurde sie als Kulturlandschaft Wachau mit den Stiften Melk und Göttweig sowie der Altstadt von Krems in die Liste des UNESCO-Weltkultur- und -naturerbes aufgenommen.", "Melk")
                 )
         );

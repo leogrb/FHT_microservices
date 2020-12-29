@@ -20,6 +20,15 @@ spring:
     config:
       uri: http://localhost:8888 # maybe get config server through server discovery (eureka)
       name: statisticsservice,datasource
+    stream:
+      bindings:
+        input:
+          destination: blog.article
+          content-type: application/json
+          group: blog.article.statistics
+      kafka:
+        binder:
+          brokers: localhost:9092
 
 eureka:
   client:

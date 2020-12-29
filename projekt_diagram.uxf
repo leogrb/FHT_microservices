@@ -1,4 +1,4 @@
-<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><help_text>group=1</help_text><element><id>UMLDeployment</id><coordinates><x>330</x><y>1390</y><w>270</w><h>150</h></coordinates><panel_attributes>group=2
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>group=1</help_text><element><id>UMLDeployment</id><coordinates><x>330</x><y>1390</y><w>270</w><h>150</h></coordinates><panel_attributes>group=2
 &lt;&lt;registry&gt;&gt;
 ServiceRegistry</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLDeployment</id><coordinates><x>790</x><y>1050</y><w>270</w><h>250</h></coordinates><panel_attributes>group=5
 &lt;&lt;service&gt;&gt;
@@ -165,20 +165,18 @@ fg=#FF0000
 send message with blog article to topic when article is clicked</panel_attributes><additional_attributes>640;350;10;10</additional_attributes></element><element><id>UMLDeployment</id><coordinates><x>1520</x><y>1560</y><w>270</w><h>70</h></coordinates><panel_attributes>&lt;&lt;system&gt;&gt;
 Zookeeper</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1640</x><y>1500</y><w>50</w><h>70</h></coordinates><panel_attributes>lt=[2181]-
 </panel_attributes><additional_attributes>20;50;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1410</x><y>1580</y><w>130</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes>110;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1650</x><y>1440</y><w>30</w><h>140</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;120;10;10</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>1550</x><y>1350</y><w>220</w><h>70</h></coordinates><panel_attributes>&lt;&lt;topic&gt;&gt;
-blog.article</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1960</x><y>1300</y><w>390</w><h>160</h></coordinates><panel_attributes>ReaderEvent
+blog.article</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1960</x><y>1300</y><w>390</w><h>160</h></coordinates><panel_attributes>ArticleEvent
 --
 -timestamp: long
--eventType: EventType
+-eventType: ArticleEventType
 -article: Article
 --
-_+forCreated(article: Article): ArticleEvent
-_+forDeleted(article: Article): ArticleEvent</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1760</x><y>1360</y><w>220</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
+_+forClicked(article: Article): ArticleEvent</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1760</x><y>1360</y><w>220</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
 &lt;&lt;stores&gt;&gt;</panel_attributes><additional_attributes>200;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2110</x><y>1500</y><w>130</w><h>100</h></coordinates><panel_attributes>bg=#F5F5F5
 &lt;&lt;enum&gt;&gt;
-EventType
+ArticleEventType
 --
-CREATED
-DELETED</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>1200</x><y>1550</y><w>220</w><h>100</h></coordinates><panel_attributes>customelement=
+CLICKED</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>1200</x><y>1550</y><w>220</w><h>100</h></coordinates><panel_attributes>customelement=
 // Text Elemnt
 // DB Symbol
 drawArc(0,0,width,height*2/5,0,180,true) fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)
@@ -201,9 +199,9 @@ drawRectangle(0,(height+0.5)/5,width,(height)*3/5-1) fg=#929292 bg=#222222 //Par
 drawLine(0,height/5,0,height*4/5)fg=black //Parameters (x1, y1, x2, y2) 
 drawLine(width,height/5,width,height*4/5)fg=black //Parameters (x1, y1, x2, y2) 
 drawArc(0,height*3/5,width,height*2/5,180,180,true) fg=black bg=#222222 //Parameters (x, y, width, height, start, extent, open)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1640</x><y>1270</y><w>50</w><h>30</h></coordinates><panel_attributes>lt=[9092]-</panel_attributes><additional_attributes>20;10;20;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1020</x><y>560</y><w>660</w><h>730</h></coordinates><panel_attributes>layer=2
-lt=&lt;-
+lt=&lt;-&gt;
 fg=#FF0000
 subscribe to topic and receive message with blog article </panel_attributes><additional_attributes>640;710;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1020</x><y>1260</y><w>640</w><h>40</h></coordinates><panel_attributes>layer=2
-lt=&lt;-
+lt=&lt;-&gt;
 fg=#FF0000
 subscribe to topic and receive message with blog article </panel_attributes><additional_attributes>620;20;10;20</additional_attributes></element></diagram>
