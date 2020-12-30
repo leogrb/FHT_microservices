@@ -1,11 +1,6 @@
 package at.technikumwien.statisticsservice.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,24 +10,27 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 
-@Entity(name = "t_sight_statistics")
-@Table
+@Entity
+@Table(name = "t_sight_statistics")
 public class SightStatistics {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	@EmbeddedId
+	private SightStatisticsPK key;
+
+	@MapsId("monthId")
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "month_id")
+	private Month month;
+
+	@MapsId("yearId")
+	@ManyToOne(cascade = CascadeType.MERGE)
+	@JoinColumn(name = "year_id")
+	private Year year;
 
 	@Column
-	private Long sightId;
+	private Long clicks;
 
-	@Column
-	private Long totalClicks;
-
-	@Column
-	private Long monthlyClicks;
-
-	public SightStatistics(Long sightId, Long totalClicks, Long monthlyClicks) {
-		this(null, sightId, totalClicks, monthlyClicks);
+	public SightStatistics(Month month, Year year) {
+		this(null, month, year, null);
 	}
 }
