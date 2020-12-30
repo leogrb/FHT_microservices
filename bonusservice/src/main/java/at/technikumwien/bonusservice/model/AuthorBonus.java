@@ -28,7 +28,7 @@ public class AuthorBonus {
 	private Long id;
 
 	@NotNull
-	@Column
+	@Column(unique = true)
 	private Long authorId;
 
 	@NotNull
