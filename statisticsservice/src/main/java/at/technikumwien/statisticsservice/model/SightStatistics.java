@@ -1,6 +1,7 @@
 package at.technikumwien.statisticsservice.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,15 +23,11 @@ public class SightStatistics {
 	@JoinColumn(name = "month_id")
 	private Month month;
 
-	@MapsId("yearId")
-	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "year_id")
-	private Year year;
-
 	@Column
+	@NotNull
 	private Long clicks;
 
-	public SightStatistics(Month month, Year year) {
-		this(null, month, year, null);
+	public SightStatistics(Month month) {
+		this(null, month, null);
 	}
 }

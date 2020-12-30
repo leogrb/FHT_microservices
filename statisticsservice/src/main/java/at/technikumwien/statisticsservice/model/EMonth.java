@@ -1,5 +1,7 @@
 package at.technikumwien.statisticsservice.model;
 
+import javax.persistence.EmbeddedId;
+
 public enum EMonth {
     JANUARY(1L),
     FEBRUARY(2L),
@@ -22,5 +24,12 @@ public enum EMonth {
 
     public Long getId() {
         return id;
+    }
+
+    public static String getMonthNameToId(Long id) {
+        for (EMonth elem : EMonth.values()) {
+            if (elem.getId().equals(id)) return elem.name();
+        }
+        return null;
     }
 }

@@ -1,6 +1,9 @@
 package at.technikumwien.statisticsservice;
 
-import at.technikumwien.statisticsservice.model.*;
+import at.technikumwien.statisticsservice.model.EMonth;
+import at.technikumwien.statisticsservice.model.Month;
+import at.technikumwien.statisticsservice.model.SightStatistics;
+import at.technikumwien.statisticsservice.model.SightStatisticsPK;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -28,14 +31,14 @@ public class DBInitializer {
         Random random = new Random();
         int max = 100;
         for (EMonth month : EMonth.values()) {
-            SightStatistics sightStatistics = new SightStatistics(new Month(month.getId(), month.name()), new Year(1L, 2020L));
+            SightStatistics sightStatistics = new SightStatistics(new Month(month.getId(), month.name()));
             sightStatistics.setClicks(Math.abs(random.nextLong() % max));
-            sightStatistics.setKey(new SightStatisticsPK(sightStatistics.getMonth().getId(), sightStatistics.getYear().getId(), 1L));
+            sightStatistics.setKey(new SightStatisticsPK(sightStatistics.getMonth().getId(), 2020L, 1L));
             sightStatisticsRepository.save(sightStatistics);
 
-            SightStatistics sightStatistics2 = new SightStatistics(new Month(month.getId(), month.name()), new Year(1L, 2020L));
+            SightStatistics sightStatistics2 = new SightStatistics(new Month(month.getId(), month.name()));
             sightStatistics2.setClicks(Math.abs(random.nextLong() % max));
-            sightStatistics2.setKey(new SightStatisticsPK(sightStatistics2.getMonth().getId(), sightStatistics2.getYear().getId(), 2L));
+            sightStatistics2.setKey(new SightStatisticsPK(sightStatistics2.getMonth().getId(), 2020L, 2L));
             sightStatisticsRepository.save(sightStatistics2);
         }
     }
