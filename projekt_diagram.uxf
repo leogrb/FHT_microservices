@@ -1,4 +1,4 @@
-<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><help_text>group=1</help_text><element><id>UMLDeployment</id><coordinates><x>330</x><y>1390</y><w>270</w><h>150</h></coordinates><panel_attributes>group=2
+<diagram program="umletino" version="14.3.0"><zoom_level>10</zoom_level><help_text>group=1</help_text><element><id>UMLDeployment</id><coordinates><x>330</x><y>1390</y><w>270</w><h>150</h></coordinates><panel_attributes>group=2
 &lt;&lt;registry&gt;&gt;
 ServiceRegistry</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLDeployment</id><coordinates><x>790</x><y>1050</y><w>270</w><h>250</h></coordinates><panel_attributes>group=5
 &lt;&lt;service&gt;&gt;
@@ -151,14 +151,7 @@ m1=1
 m2=1
 group=15</panel_attributes><additional_attributes>40;10;300;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1800</x><y>670</y><w>290</w><h>40</h></coordinates><panel_attributes>lt=&lt;.
 &lt;&lt;stores for bonusservice&gt;</panel_attributes><additional_attributes>270;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>1790</x><y>710</y><w>300</w><h>290</h></coordinates><panel_attributes>lt=&lt;.
-&lt;&lt;stores for statisticsservice&gt;</panel_attributes><additional_attributes>280;270;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2130</x><y>930</y><w>180</w><h>200</h></coordinates><panel_attributes>SightStatistics
---
--id: Long
--sightID: Long
--totalClicks: Long
--monthlyClicks: Long
---
-...</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLDeployment</id><coordinates><x>1530</x><y>1280</y><w>270</w><h>170</h></coordinates><panel_attributes>&lt;&lt;system&gt;&gt;
+&lt;&lt;stores for statisticsservice&gt;</panel_attributes><additional_attributes>280;270;10;10</additional_attributes></element><element><id>UMLDeployment</id><coordinates><x>1530</x><y>1280</y><w>270</w><h>170</h></coordinates><panel_attributes>&lt;&lt;system&gt;&gt;
 Kafka</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1020</x><y>920</y><w>660</w><h>370</h></coordinates><panel_attributes>layer=2
 lt=&lt;-
 fg=#FF0000
@@ -204,4 +197,32 @@ fg=#FF0000
 subscribe to topic and receive message with blog article </panel_attributes><additional_attributes>640;710;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1020</x><y>1260</y><w>640</w><h>40</h></coordinates><panel_attributes>layer=2
 lt=&lt;-&gt;
 fg=#FF0000
-subscribe to topic and receive message with blog article </panel_attributes><additional_attributes>620;20;10;20</additional_attributes></element></diagram>
+subscribe to topic and receive message with blog article </panel_attributes><additional_attributes>620;20;10;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2130</x><y>960</y><w>180</w><h>200</h></coordinates><panel_attributes>Month
+--
+-id: Long
+-name: String
+--
+...
+group=16</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>2940</x><y>960</y><w>180</w><h>200</h></coordinates><panel_attributes>Year
+--
+-id: Long
+-Long: Year
+--
+...
+group=16</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>2290</x><y>1080</y><w>310</w><h>40</h></coordinates><panel_attributes>lt=[month]&lt;-
+m1=1
+m2=n
+group=16</panel_attributes><additional_attributes>30;10;290;10</additional_attributes></element><element><id>Relation</id><coordinates><x>2720</x><y>1070</y><w>290</w><h>50</h></coordinates><panel_attributes>lt=-&gt;[year]
+m1=n
+m2=1
+
+group=16</panel_attributes><additional_attributes>10;20;260;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>2570</x><y>960</y><w>180</w><h>200</h></coordinates><panel_attributes>SightStatistics
+--
+-id: Long
+-sightID: Long
+-monthID: Long
+-yearID: Long
+-clicks: Long
+--
+...
+group=16</panel_attributes><additional_attributes></additional_attributes></element></diagram>
