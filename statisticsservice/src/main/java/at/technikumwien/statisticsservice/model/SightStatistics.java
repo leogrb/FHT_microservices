@@ -18,16 +18,7 @@ public class SightStatistics {
 	@EmbeddedId
 	private SightStatisticsPK key;
 
-	@MapsId("monthId")
-	@ManyToOne(cascade = CascadeType.MERGE)
-	@JoinColumn(name = "month_id")
-	private Month month;
-
 	@Column
 	@NotNull
 	private Long clicks;
-
-	public SightStatistics(Month month) {
-		this(null, month, null);
-	}
 }

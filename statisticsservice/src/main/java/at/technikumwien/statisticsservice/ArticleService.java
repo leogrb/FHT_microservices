@@ -57,7 +57,6 @@ public class ArticleService {
                     SightStatistics newSightStatistics = new SightStatistics();
                     String monthName = EMonth.getMonthNameToId((long) month);
                     if (monthName != null) {
-                        newSightStatistics.setMonth(new Month((long) month, monthName));
                         newSightStatistics.setKey(new SightStatisticsPK((long) month, (long) year, id));
                         newSightStatistics.setClicks(1L);
                         sightStatisticsRepository.save(newSightStatistics);

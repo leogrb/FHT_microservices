@@ -1,7 +1,6 @@
 package at.technikumwien.statisticsservice;
 
 import at.technikumwien.statisticsservice.model.EMonth;
-import at.technikumwien.statisticsservice.model.Month;
 import at.technikumwien.statisticsservice.model.SightStatistics;
 import at.technikumwien.statisticsservice.model.SightStatisticsPK;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,14 +30,14 @@ public class DBInitializer {
         Random random = new Random();
         int max = 100;
         for (EMonth month : EMonth.values()) {
-            SightStatistics sightStatistics = new SightStatistics(new Month(month.getId(), month.name()));
+            SightStatistics sightStatistics = new SightStatistics();
             sightStatistics.setClicks(Math.abs(random.nextLong() % max));
-            sightStatistics.setKey(new SightStatisticsPK(sightStatistics.getMonth().getId(), 2020L, 1L));
+            sightStatistics.setKey(new SightStatisticsPK(month.getId(), 2020L, 1L));
             sightStatisticsRepository.save(sightStatistics);
 
-            SightStatistics sightStatistics2 = new SightStatistics(new Month(month.getId(), month.name()));
+            SightStatistics sightStatistics2 = new SightStatistics();
             sightStatistics2.setClicks(Math.abs(random.nextLong() % max));
-            sightStatistics2.setKey(new SightStatisticsPK(sightStatistics2.getMonth().getId(), 2020L, 2L));
+            sightStatistics2.setKey((new SightStatisticsPK(month.getId(), 2020L, 2L)));
             sightStatisticsRepository.save(sightStatistics2);
         }
     }
