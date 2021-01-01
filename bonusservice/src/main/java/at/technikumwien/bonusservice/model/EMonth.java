@@ -1,7 +1,6 @@
-package at.technikumwien.statisticsservice.model;
+package at.technikumwien.bonusservice.model;
 
 import java.util.Arrays;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public enum EMonth {

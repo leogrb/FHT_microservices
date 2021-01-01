@@ -44,26 +44,25 @@ public class ArticleService {
         Long id = sight.getId();
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date(System.currentTimeMillis()));
-        int month = calendar.get(Calendar.MONTH) + 1;
-        int year = calendar.get(Calendar.YEAR);
-        Optional<SightStatistics> sightStatistics = sightStatisticsRepository.findById(new SightStatisticsPK((long) month, (long) year, id));
-        sightStatistics.ifPresentOrElse(
-                (s) -> {
-                    s.setClicks(s.getClicks() + 1);
-                    sightStatisticsRepository.save(s);
-                    log.info("Sight with ID " + id + " has now " + s.getClicks() + " clicks in " + month + "/" + year + ".");
-                },
-                () -> {
-                    SightStatistics newSightStatistics = new SightStatistics();
-                    String monthName = EMonth.getMonthNameToId((long) month);
-                    if (monthName != null) {
-                        newSightStatistics.setKey(new SightStatisticsPK((long) month, (long) year, id));
+        Long month = (long) calendar.get(Calendar.MONTH) + 1;
+        Long year = (long) calendar.get(Calendar.YEAR);
+        if (EMonth.isEMonth(month)) {
+            Optional<SightStatistics> sightStatistics = sightStatisticsRepository.findById(new SightStatisticsPK(month, year, id));
+            sightStatistics.ifPresentOrElse(
+                    (s) -> {
+                        s.setClicks(s.getClicks() + 1);
+                        sightStatisticsRepository.save(s);
+                        log.info("Sight with ID " + id + " has now " + s.getClicks() + " clicks in " + month + "/" + year + ".");
+                    },
+                    () -> {
+                        SightStatistics newSightStatistics = new SightStatistics();
+                        newSightStatistics.setKey(new SightStatisticsPK(month, year, id));
                         newSightStatistics.setClicks(1L);
                         sightStatisticsRepository.save(newSightStatistics);
                         log.info("New SightStatistics Entry created. Sight with ID " + id + " has now 1 click in " + month + "/" + year + ".");
-                    } else {
-                        log.info("SightStatistics cannot be updated. Invalid month: " + month);
-                    }
-                });
+                    });
+        } else {
+            log.info("SightStatistics cannot be updated. Invalid month: " + month);
+        }
     }
 }

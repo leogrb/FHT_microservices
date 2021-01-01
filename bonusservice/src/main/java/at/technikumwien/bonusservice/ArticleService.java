@@ -1,14 +1,15 @@
 package at.technikumwien.bonusservice;
 
-import at.technikumwien.bonusservice.model.Article;
-import at.technikumwien.bonusservice.model.Author;
-import at.technikumwien.bonusservice.model.AuthorBonus;
-import at.technikumwien.bonusservice.model.BankAccount;
+import at.technikumwien.bonusservice.model.*;
 import lombok.extern.java.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.stereotype.Component;
+
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Optional;
 
 @Component
 @Log
@@ -40,14 +41,30 @@ public class ArticleService {
 
     private void handleAuthorNotNull(Author author) {
         Long id = author.getId();
-        AuthorBonus authorBonus = authorBonusRepository.findByAuthorId(id);
-        if (authorBonus != null) {
-            authorBonus.setClicks(authorBonus.getClicks() + 1);
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date(System.currentTimeMillis()));
+        Long month = (long) calendar.get(Calendar.MONTH) + 1;
+        Long year = (long) calendar.get(Calendar.YEAR);
+        if (EMonth.isEMonth(month)) {
+            Optional<AuthorBonus> authorBonus = authorBonusRepository.findById(new AuthorBonusPK(month, year, id));
+            authorBonus.ifPresentOrElse(
+                    (a) -> {
+                        a.setClicks(a.getClicks() + 1);
+                        authorBonusRepository.save(a);
+                        log.info("Author with ID " + id + " has now " + a.getClicks() + " registered clicks in " + month + "/" + year + ".");
+                    },
+                    () -> {
+                        AuthorBonus newAuthorBonus = new AuthorBonus();
+                        newAuthorBonus.setKey(new AuthorBonusPK(month, year, id));
+                        newAuthorBonus.setClicks(1L);
+                        newAuthorBonus.setBankAccount(new BankAccount("AT831488912991291929", "GIBAATWWWXX", "Erste Bank")); // dummy bank account not unique
+                        authorBonusRepository.save(newAuthorBonus);
+                        log.info("New AuthroBonus entry created. Author with ID " + id + " has now " + newAuthorBonus.getClicks() + " registered clicks in " + month + "/" + year + ".");
+                    }
+            );
         } else {
-            authorBonus = new AuthorBonus(id, 1L, new BankAccount("AT831488912991291929", "GIBAATWWWXX", "Erste Bank"));
+            log.info("AuthorBonus cannot be updated. Invalid month: " + month);
         }
-        authorBonusRepository.save(authorBonus);
-        log.info("Author with ID " + id + " has now " + authorBonus.getClicks() + " registered clicks.");
     }
 
 }

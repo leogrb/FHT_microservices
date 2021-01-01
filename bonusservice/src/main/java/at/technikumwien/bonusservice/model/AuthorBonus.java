@@ -1,14 +1,6 @@
 package at.technikumwien.bonusservice.model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
@@ -23,13 +15,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "t_author_bonus")
 public class AuthorBonus {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
-	@NotNull
-	@Column(unique = true)
-	private Long authorId;
+	@EmbeddedId
+	AuthorBonusPK key;
 
 	@NotNull
 	@Column
@@ -38,8 +25,4 @@ public class AuthorBonus {
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(nullable = false, name = "bankaccountid")
 	private BankAccount bankAccount;
-
-	public AuthorBonus(Long authorId, Long clicks, BankAccount bankAccount) {
-		this(null, authorId, clicks, bankAccount);
-	}
 }
