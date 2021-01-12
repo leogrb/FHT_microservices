@@ -1,4 +1,4 @@
-package at.technikumwien.blogservice;
+package at.technikumwien.blogservice.article;
 
 import java.net.URI;
 import java.time.Instant;

@@ -1,4 +1,4 @@
-package at.technikumwien.blogservice;
+package at.technikumwien.blogservice.sight;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

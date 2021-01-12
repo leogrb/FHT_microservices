@@ -62,11 +62,7 @@ public class ArticleService {
 				AuthorBonus newAuthorBonus = new AuthorBonus();
 				newAuthorBonus.setKey(new AuthorBonusPK(month, year, id));
 				newAuthorBonus.setClicks(1L);
-				newAuthorBonus.setBankAccount(new BankAccount("AT831488912991291929", "GIBAATWWWXX", "Erste Bank")); // dummy
-																														// bank
-																														// account
-																														// not
-																														// unique
+				newAuthorBonus.setBankAccount(BankAccountGenerator.create());
 				authorBonusRepository.save(newAuthorBonus);
 				log.info("New AuthroBonus entry created. Author with ID " + id + " has now "
 						+ newAuthorBonus.getClicks() + " registered clicks in " + month + "/" + year + ".");

@@ -1,4 +1,4 @@
-package at.technikumwien.blogservice;
+package at.technikumwien.blogservice.article;
 
 import java.time.LocalDate;
 
@@ -13,6 +13,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import at.technikumwien.blogservice.author.Author;
+import at.technikumwien.blogservice.sight.Sight;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

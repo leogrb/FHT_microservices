@@ -1,4 +1,4 @@
-package at.technikumwien.blogservice;
+package at.technikumwien.blogservice.article;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

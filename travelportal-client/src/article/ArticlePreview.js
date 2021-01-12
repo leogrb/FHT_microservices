@@ -1,11 +1,24 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 import { Link } from "@reach/router";
 import { Container } from "react-bootstrap";
 
+import axios from "axios";
+import config from "../config.js";
+
 import "./article-prev.css";
 
-const ArticlePreview = () => {
+const ArticlePreview = (props) => {
+  const [article, setArticle] = useState({ author: {}, sight: {} });
+  useEffect(() => {
+    axios
+      .get(config.API.BLOG + "resources/articles/" + props.id)
+      .then((res) => {
+        setArticle(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
   return (
     <div
       id="articlePreview"
@@ -17,37 +30,20 @@ const ArticlePreview = () => {
         <Link to="/">
           <i className="fas fa-arrow-left" /> Return back
         </Link>
-        <h1 className="text-center">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit
-        </h1>
+        <h1 className="text-center">{article.title}</h1>
         <p>
-          <i className="fas fa-calendar-alt" /> 01.01.2021
+          <i className="fas fa-calendar-alt" /> {article.publicationDate}
         </p>
         <p>
-          <i className="fas fa-map-marker-alt" /> Wien - Location Somewhere
+          <i className="fas fa-map-marker-alt" />{" "}
+          {`${article.sight.city} - ${article.sight.name}`}
         </p>
         <hr />
-        <p>
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
-          ab illo inventore veritatis et quasi architecto beatae vitae dicta
-          sunt explicabo.
-          <br />
-          <br />
-          Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-          fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-          sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor
-          sit amet, consectetur, adipisci velit, sed quia non numquam eius modi
-          tempora incidunt ut labore et dolore magnam aliquam quaerat
-          voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem
-          ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi
-          consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate
-          velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum
-          fugiat quo voluptas nulla pariatur?
-        </p>
+        <p>{article.description}</p>
         <div className="text-right">
           <span>
-            <i className="fas fa-at" /> Stefan Miljevic
+            <i className="fas fa-at" />{" "}
+            {`${article.author.firstname} ${article.author.lastname}`}
           </span>
         </div>
       </Container>

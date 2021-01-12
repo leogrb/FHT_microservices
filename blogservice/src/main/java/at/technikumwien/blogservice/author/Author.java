@@ -1,4 +1,4 @@
-package at.technikumwien.blogservice;
+package at.technikumwien.blogservice.author;
 
 import java.time.LocalDate;
 

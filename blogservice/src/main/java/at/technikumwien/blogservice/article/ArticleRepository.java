@@ -1,4 +1,4 @@
-package at.technikumwien.blogservice;
+package at.technikumwien.blogservice.article;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

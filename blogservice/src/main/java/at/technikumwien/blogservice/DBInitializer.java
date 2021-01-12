@@ -10,6 +10,11 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.EventListener;
 
+import at.technikumwien.blogservice.article.Article;
+import at.technikumwien.blogservice.article.ArticleRepository;
+import at.technikumwien.blogservice.author.Author;
+import at.technikumwien.blogservice.sight.Sight;
+
 @Configuration
 public class DBInitializer {
     @Autowired

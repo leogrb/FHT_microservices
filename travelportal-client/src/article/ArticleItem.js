@@ -6,10 +6,14 @@ import { Card } from "react-bootstrap";
 const ArticleItem = (props) => {
   const { id, title, description, publicationDate } = props;
   const preparedDescription = truncate(description, {
-    length: 100
+    length: 300
   });
   return (
-    <Card>
+    <Card
+      style={{
+        marginBottom: "10px"
+      }}
+    >
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Subtitle className="mb-2 text-muted">
