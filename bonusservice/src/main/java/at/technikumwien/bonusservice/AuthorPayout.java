@@ -1,15 +1,16 @@
 package at.technikumwien.bonusservice;
 
-import at.technikumwien.bonusservice.model.AuthorBonus;
-import at.technikumwien.bonusservice.model.BankAccount;
-import lombok.extern.java.Log;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import at.technikumwien.bonusservice.model.AuthorBonus;
+import at.technikumwien.bonusservice.model.BankAccount;
+import lombok.extern.java.Log;
 
 @Log
 @Component

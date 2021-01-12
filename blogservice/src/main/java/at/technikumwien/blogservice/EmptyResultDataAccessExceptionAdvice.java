@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
 public class EmptyResultDataAccessExceptionAdvice {
-    @ExceptionHandler(EmptyResultDataAccessException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    @ResponseBody
-    public String handleEmptyResultDataAccessException(EmptyResultDataAccessException exception) {
-        return exception.getMessage();
-    }
+	@ExceptionHandler(EmptyResultDataAccessException.class)
+	@ResponseStatus(HttpStatus.NOT_FOUND)
+	@ResponseBody
+	public String handleEmptyResultDataAccessException(EmptyResultDataAccessException exception) {
+		return exception.getMessage();
+	}
 }

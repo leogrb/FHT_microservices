@@ -1,12 +1,13 @@
 package at.technikumwien.bonusservice.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import java.io.Serializable;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
@@ -14,10 +15,11 @@ import java.io.Serializable;
 
 @Embeddable
 public class AuthorBonusPK implements Serializable {
-    @Column(name = "monthId")
-    protected Long monthId;
-    @Column(name = "yearId")
-    protected Long yearId;
-    @Column(name = "authorId")
-    protected Long authorId;
+	private static final long serialVersionUID = -5406726227377231245L;
+	@Column(name = "monthId")
+	protected Long monthId;
+	@Column(name = "yearId")
+	protected Long yearId;
+	@Column(name = "authorId")
+	protected Long authorId;
 }

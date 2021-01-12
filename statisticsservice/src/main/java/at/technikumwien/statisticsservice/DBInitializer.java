@@ -1,16 +1,18 @@
 package at.technikumwien.statisticsservice;
 
-import at.technikumwien.statisticsservice.model.EMonth;
-import at.technikumwien.statisticsservice.model.SightStatistics;
-import at.technikumwien.statisticsservice.model.SightStatisticsPK;
+import java.util.Random;
+
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.EventListener;
 
-import javax.transaction.Transactional;
-import java.util.Random;
+import at.technikumwien.statisticsservice.model.EMonth;
+import at.technikumwien.statisticsservice.model.SightStatistics;
+import at.technikumwien.statisticsservice.model.SightStatisticsPK;
 
 @Configuration
 public class DBInitializer {

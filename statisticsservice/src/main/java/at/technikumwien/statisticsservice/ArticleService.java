@@ -1,15 +1,20 @@
 package at.technikumwien.statisticsservice;
 
-import at.technikumwien.statisticsservice.model.*;
-import lombok.extern.java.Log;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.stereotype.Component;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Optional;
+import at.technikumwien.statisticsservice.model.Article;
+import at.technikumwien.statisticsservice.model.EMonth;
+import at.technikumwien.statisticsservice.model.Sight;
+import at.technikumwien.statisticsservice.model.SightStatistics;
+import at.technikumwien.statisticsservice.model.SightStatisticsPK;
+import lombok.extern.java.Log;
 
 @Component
 @Log

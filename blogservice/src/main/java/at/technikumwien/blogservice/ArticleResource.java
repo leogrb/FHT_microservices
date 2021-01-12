@@ -1,6 +1,10 @@
 package at.technikumwien.blogservice;
 
-import lombok.extern.java.Log;
+import java.net.URI;
+import java.time.Instant;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.messaging.Source;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -8,12 +12,15 @@ import org.springframework.hateoas.server.mvc.WebMvcLinkBuilder;
 import org.springframework.http.ResponseEntity;
 import org.springframework.integration.support.MessageBuilder;
 import org.springframework.messaging.Message;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.net.URI;
-import java.time.Instant;
-import java.util.List;
-import java.util.Optional;
+import lombok.extern.java.Log;
 
 @RestController
 @RequestMapping("/resources/articles")

@@ -1,12 +1,13 @@
 package at.technikumwien.statisticsservice.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
-import java.io.Serializable;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
@@ -14,10 +15,11 @@ import java.io.Serializable;
 
 @Embeddable
 public class SightStatisticsPK implements Serializable {
-    @Column(name = "monthId")
-    protected Long monthId;
-    @Column(name = "yearId")
-    protected Long yearId;
-    @Column(name = "sightId")
-    protected Long sightId;
+	private static final long serialVersionUID = 4783705354041992675L;
+	@Column(name = "monthId")
+	protected Long monthId;
+	@Column(name = "yearId")
+	protected Long yearId;
+	@Column(name = "sightId")
+	protected Long sightId;
 }
