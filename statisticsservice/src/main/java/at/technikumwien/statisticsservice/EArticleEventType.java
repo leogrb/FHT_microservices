@@ -1,5 +1,5 @@
 package at.technikumwien.statisticsservice;
 
-public enum ArticleEventType {
+public enum EArticleEventType {
 	CLICKED
 }

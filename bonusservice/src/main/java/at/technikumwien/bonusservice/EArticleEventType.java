@@ -1,5 +1,5 @@
 package at.technikumwien.bonusservice;
 
-public enum ArticleEventType {
+public enum EArticleEventType {
 	CLICKED
 }

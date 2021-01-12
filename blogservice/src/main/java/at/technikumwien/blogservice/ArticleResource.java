@@ -59,7 +59,7 @@ public class ArticleResource {
 	}
 
 	private void sendEventMessage(Article article) {
-		final ArticleEvent event = new ArticleEvent(Instant.now().getEpochSecond(), article, ArticleEventType.CLICKED);
+		final ArticleEvent event = new ArticleEvent(Instant.now().getEpochSecond(), article, EArticleEventType.CLICKED);
 		Message<ArticleEvent> message = MessageBuilder.withPayload(event).build();
 		source.output().send(message);
 	}

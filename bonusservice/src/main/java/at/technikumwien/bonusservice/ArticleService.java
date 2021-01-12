@@ -25,7 +25,7 @@ public class ArticleService {
 
 	@StreamListener(Sink.INPUT)
 	public void handleArticleEvent(final ArticleEvent articleEvent) {
-		if (articleEvent.getEventType().equals(ArticleEventType.CLICKED)) {
+		if (articleEvent.getEventType().equals(EArticleEventType.CLICKED)) {
 			log.info("New article CLICKED event registered of time: " + articleEvent.getTimestamp());
 			Article article = articleEvent.getArticle();
 			if (article != null) {

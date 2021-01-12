@@ -9,5 +9,5 @@ import lombok.Data;
 public class ArticleEvent {
 	private long timestamp;
 	private Article article;
-	private ArticleEventType eventType;
+	private EArticleEventType eventType;
 }
