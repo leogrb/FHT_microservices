@@ -1,4 +1,4 @@
-package at.technikumwien.statisticsservice.model;
+package at.technikumwien.statisticsservice;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;

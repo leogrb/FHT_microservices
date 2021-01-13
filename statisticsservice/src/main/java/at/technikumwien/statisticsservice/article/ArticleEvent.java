@@ -1,6 +1,5 @@
-package at.technikumwien.statisticsservice;
+package at.technikumwien.statisticsservice.article;
 
-import at.technikumwien.statisticsservice.model.Article;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

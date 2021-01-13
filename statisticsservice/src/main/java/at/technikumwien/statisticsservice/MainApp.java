@@ -2,9 +2,12 @@ package at.technikumwien.statisticsservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.messaging.Sink;
+import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableJpaRepositories(repositoryBaseClass = CustomJpaRepository.class)
@@ -13,6 +16,11 @@ public class MainApp {
 
 	public static void main(String[] args) {
 		SpringApplication.run(MainApp.class, args);
+	}
+
+	@Bean
+	public RestTemplate getRestTemplate(RestTemplateBuilder builder) {
+		return builder.build();
 	}
 
 }

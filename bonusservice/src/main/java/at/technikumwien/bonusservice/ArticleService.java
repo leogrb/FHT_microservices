@@ -13,7 +13,6 @@ import at.technikumwien.bonusservice.model.Article;
 import at.technikumwien.bonusservice.model.Author;
 import at.technikumwien.bonusservice.model.AuthorBonus;
 import at.technikumwien.bonusservice.model.AuthorBonusPK;
-import at.technikumwien.bonusservice.model.BankAccount;
 import at.technikumwien.bonusservice.model.EMonth;
 import lombok.extern.java.Log;
 

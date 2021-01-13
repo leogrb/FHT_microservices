@@ -1,7 +1,9 @@
-package at.technikumwien.statisticsservice.model;
+package at.technikumwien.statisticsservice.article;
 
 import java.time.LocalDate;
 
+import at.technikumwien.statisticsservice.author.Author;
+import at.technikumwien.statisticsservice.sight.Sight;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

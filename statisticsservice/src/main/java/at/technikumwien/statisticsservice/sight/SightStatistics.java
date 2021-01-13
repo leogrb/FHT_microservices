@@ -1,4 +1,4 @@
-package at.technikumwien.statisticsservice.model;
+package at.technikumwien.statisticsservice.sight;
 
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;

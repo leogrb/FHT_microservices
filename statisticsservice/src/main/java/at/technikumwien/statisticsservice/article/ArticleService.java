@@ -1,4 +1,4 @@
-package at.technikumwien.statisticsservice;
+package at.technikumwien.statisticsservice.article;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -9,11 +9,11 @@ import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.stereotype.Component;
 
-import at.technikumwien.statisticsservice.model.Article;
-import at.technikumwien.statisticsservice.model.EMonth;
-import at.technikumwien.statisticsservice.model.Sight;
-import at.technikumwien.statisticsservice.model.SightStatistics;
-import at.technikumwien.statisticsservice.model.SightStatisticsPK;
+import at.technikumwien.statisticsservice.EMonth;
+import at.technikumwien.statisticsservice.sight.Sight;
+import at.technikumwien.statisticsservice.sight.SightStatistics;
+import at.technikumwien.statisticsservice.sight.SightStatisticsPK;
+import at.technikumwien.statisticsservice.sight.SightStatisticsRepository;
 import lombok.extern.java.Log;
 
 @Component

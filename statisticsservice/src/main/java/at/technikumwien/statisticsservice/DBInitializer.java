@@ -10,9 +10,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.EventListener;
 
-import at.technikumwien.statisticsservice.model.EMonth;
-import at.technikumwien.statisticsservice.model.SightStatistics;
-import at.technikumwien.statisticsservice.model.SightStatisticsPK;
+import at.technikumwien.statisticsservice.sight.SightStatistics;
+import at.technikumwien.statisticsservice.sight.SightStatisticsPK;
+import at.technikumwien.statisticsservice.sight.SightStatisticsRepository;
 
 @Configuration
 public class DBInitializer {

@@ -1,4 +1,4 @@
-package at.technikumwien.statisticsservice.model;
+package at.technikumwien.statisticsservice.author;
 
 import java.time.LocalDate;
 
