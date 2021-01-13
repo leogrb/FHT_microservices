@@ -33,7 +33,6 @@ const StatsPage = () => {
       .get(config.API.STATISTICS + "resources/sight-statistics/")
       .then((res) => {
         const prepData = preparePayload(res.data);
-        console.log(prepData);
         setData(prepData);
       })
       .catch((err) => {
@@ -46,7 +45,7 @@ const StatsPage = () => {
         marginTop: "10px"
       }}
     >
-      <h1>Statistics</h1>
+      <h1 className="text-center">Statistics</h1>
       <hr />
       <div>
         {Object.keys(data).map((sightId) => (

@@ -1,4 +1,4 @@
-package at.technikumwien.bonusservice.model;
+package at.technikumwien.bonusservice.author;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -9,6 +9,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import at.technikumwien.bonusservice.bankaccount.BankAccount;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

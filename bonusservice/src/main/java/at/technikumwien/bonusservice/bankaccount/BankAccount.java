@@ -1,4 +1,4 @@
-package at.technikumwien.bonusservice.model;
+package at.technikumwien.bonusservice.bankaccount;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

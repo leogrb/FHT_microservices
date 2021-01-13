@@ -1,12 +1,10 @@
-package at.technikumwien.bonusservice;
+package at.technikumwien.bonusservice.bankaccount;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 import org.iban4j.Iban;
-
-import at.technikumwien.bonusservice.model.BankAccount;
 
 public class BankAccountGenerator {
 

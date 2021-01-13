@@ -1,4 +1,4 @@
-package at.technikumwien.bonusservice.model;
+package at.technikumwien.bonusservice.author;
 
 import java.time.LocalDate;
 

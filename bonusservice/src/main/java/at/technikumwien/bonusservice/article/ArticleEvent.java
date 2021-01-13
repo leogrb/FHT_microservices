@@ -1,6 +1,5 @@
-package at.technikumwien.bonusservice;
+package at.technikumwien.bonusservice.article;
 
-import at.technikumwien.bonusservice.model.Article;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

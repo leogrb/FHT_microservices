@@ -1,4 +1,4 @@
-package at.technikumwien.bonusservice;
+package at.technikumwien.bonusservice.article;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -9,11 +9,12 @@ import org.springframework.cloud.stream.annotation.StreamListener;
 import org.springframework.cloud.stream.messaging.Sink;
 import org.springframework.stereotype.Component;
 
-import at.technikumwien.bonusservice.model.Article;
-import at.technikumwien.bonusservice.model.Author;
-import at.technikumwien.bonusservice.model.AuthorBonus;
-import at.technikumwien.bonusservice.model.AuthorBonusPK;
-import at.technikumwien.bonusservice.model.EMonth;
+import at.technikumwien.bonusservice.author.Author;
+import at.technikumwien.bonusservice.author.AuthorBonus;
+import at.technikumwien.bonusservice.author.AuthorBonusPK;
+import at.technikumwien.bonusservice.author.AuthorBonusRepository;
+import at.technikumwien.bonusservice.author.EMonth;
+import at.technikumwien.bonusservice.bankaccount.BankAccountGenerator;
 import lombok.extern.java.Log;
 
 @Component

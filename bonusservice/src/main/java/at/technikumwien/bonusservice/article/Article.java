@@ -1,7 +1,9 @@
-package at.technikumwien.bonusservice.model;
+package at.technikumwien.bonusservice.article;
 
 import java.time.LocalDate;
 
+import at.technikumwien.bonusservice.author.Author;
+import at.technikumwien.bonusservice.sight.Sight;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
