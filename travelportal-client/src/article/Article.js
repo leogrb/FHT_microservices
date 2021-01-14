@@ -1,7 +1,7 @@
 import { Button } from "react-bootstrap";
 import React from "react";
 import { Container, Form } from "react-bootstrap";
-import { isFunction, toInteger } from "lodash";
+import { isEmpty, isFunction, toInteger } from "lodash";
 import axios from "axios";
 import config from "../config.js";
 
@@ -35,9 +35,18 @@ class Article extends React.Component {
     axios
       .get(config.API.BLOG + "resources/authors")
       .then((res) => {
-        this.setState({
-          authors: res.data
-        });
+        this.setState(
+          {
+            authors: res.data
+          },
+          () => {
+            const { article } = this.state;
+            article.author = this.state.authors[this.state.authorIndex];
+            this.setState({
+              article
+            });
+          }
+        );
       })
       .catch((err) => {
         console.error(err);
@@ -46,9 +55,18 @@ class Article extends React.Component {
     axios
       .get(config.API.BLOG + "resources/sights")
       .then((res) => {
-        this.setState({
-          sights: res.data
-        });
+        this.setState(
+          {
+            sights: res.data
+          },
+          () => {
+            const { article } = this.state;
+            article.sight = this.state.sights[this.state.sightIndex];
+            this.setState({
+              article
+            });
+          }
+        );
       })
       .catch((err) => {
         console.error(err);
