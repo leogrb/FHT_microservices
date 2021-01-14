@@ -28,7 +28,7 @@ public class SightResource {
 	public Sight retrieve(@PathVariable long id) {
 		final Optional<Sight> sight = sightRepository.findById(id);
 		if (!sight.isPresent()) {
-			throw new EmptyResultDataAccessException("Can't find author with id " + id, 1);
+			throw new EmptyResultDataAccessException("Can't find sight with id " + id, 1);
 		}
 		return sight.get();
 	}
