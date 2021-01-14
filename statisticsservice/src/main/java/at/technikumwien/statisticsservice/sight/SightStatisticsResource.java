@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,6 +24,7 @@ import lombok.extern.java.Log;
 public class SightStatisticsResource {
 
 	@Autowired
+	@LoadBalanced
 	private RestTemplate restTemplate;
 
 	@Autowired
@@ -31,6 +33,7 @@ public class SightStatisticsResource {
 	@Autowired
 	private EurekaClient eurekaClient;
 
+	private static final String BLOG_SERVICE_ID = "BLOGSERVICE";
 	@GetMapping
 	public List<SightStatisticsDto> retrieveAll() {
 		log.info("Retrieving all sight statistics ...");
@@ -44,11 +47,7 @@ public class SightStatisticsResource {
 	}
 
 	private String getSightResourceUrl(Long sightId) {
-		Application application = eurekaClient.getApplication("blogservice");
-		InstanceInfo instanceInfo = application.getInstances().get(0);
-		String url = "http://" + instanceInfo.getIPAddr() + ":" + instanceInfo.getPort() + "/" + "resources/sights/"
-				+ sightId;
-		return url;
+		return "http://" + BLOG_SERVICE_ID + "/resources/sights/" + sightId;
 	}
 
 }

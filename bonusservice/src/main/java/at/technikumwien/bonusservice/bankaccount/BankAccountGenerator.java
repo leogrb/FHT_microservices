@@ -8,10 +8,10 @@ import org.iban4j.Iban;
 
 public class BankAccountGenerator {
 
-	private static List<String> bankNames = Arrays.asList("Erste Bank", "Bank Austria", "Raiffeisen Bank",
+	private static final List<String> bankNames = Arrays.asList("Erste Bank", "Bank Austria", "Raiffeisen Bank",
 			"BAWAG P.S.K.", "OberBank", "Addiko Bank", "DenizBank", "Sberbank Europe", "VakifBank International",
 			"Volksbank");
-	private static List<String> bankSwifts = Arrays.asList("GIBAATWWXXX", "BKAUATWWXXX", "RZBAATWWXXX", "BAWAATWWXXX",
+	private static final List<String> bankSwifts = Arrays.asList("GIBAATWWXXX", "BKAUATWWXXX", "RZBAATWWXXX", "BAWAATWWXXX",
 			"OBKLAT2LXXX", "HSEEAT2KXXX", "ESBKATWWXXX", "SABRATWWXXX", "TVBAATWWXXX", "VBOEATWWXXX");
 
 	public static BankAccount create() {
